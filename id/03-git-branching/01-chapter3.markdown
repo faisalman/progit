@@ -92,27 +92,27 @@ Hal ini kontras dengan cara yang dilakukan banyak VCS dalam branch, yang butuh m
 
 Mari kita lihat mengapa anda harus melakukannya.
 
-## Basic Branching and Merging ##
+## Dasar Branching dan Merging ##
 
-Let’s go through a simple example of branching and merging with a workflow that you might use in the real world. You’ll follow these steps:
+Mari kita lihat sebuah contoh sederhana dari branching (percabangan) dan merging (penggabungan) dengan alur kerja yang mungkin anda lakukan dalam dunia nyata. Anda akan mengikuti langkah berikut:
 
-1.	Do work on a web site.
-2.	Create a branch for a new story you’re working on.
-3.	Do some work in that branch.
+1.	Mengerjakan sesuatu di sebuah halaman web.
+2.	Membuat sebuah branch untuk sebuah cerita baru yang sedang anda kerjakan.
+3.	Mengerjakan beberapa pekerjaan di branch tersebut.
 
-At this stage, you’ll receive a call that another issue is critical and you need a hotfix. You’ll do the following:
+Pada tingkatan ini, anda akan menerima sebuah panggilan yang menyatakan bahwa isu lain sedang kritis dan anda perlu sebuah perbaikan (hotfix). Anda akan mengikuti langkah berikut:
 
-1.	Revert back to your production branch.
-2.	Create a branch to add the hotfix.
-3.	After it’s tested, merge the hotfix branch, and push to production.
-4.	Switch back to your original story and continue working.
+1.	Kembali ke branch produksi anda.
+2.	Buat sebuah branch untuk menambahkan hotfix.
+3.	Setelah teruji, lakukan merge atas branch hotfix, dan lakukan push ke production.
+4.	Kembali ke cerita semula dan kembali bekerja.
 
-### Basic Branching ###
+### Dasar Branching ###
 
-First, let’s say you’re working on your project and have a couple of commits already (see Figure 3-10).
+Pertama-tama, misalkan anda sedang mengerjakan project dan telah memiliki beberapa commit (lihat Gambar 3-10).
 
 Insert 18333fig0310.png 
-Figure 3-10. A short and simple commit history.
+Gambar 3-10. Sebuah history commit yang singkat dan sederhana.
 
 You’ve decided that you’re going to work on issue #53 in whatever issue-tracking system your company uses. To be clear, Git isn’t tied into any particular issue-tracking system; but because issue #53 is a focused topic that you want to work on, you’ll create a new branch in which to work. To create a branch and switch to it at the same time, you can run the `git checkout` command with the `-b` switch:
 
