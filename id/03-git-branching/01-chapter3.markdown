@@ -410,9 +410,9 @@ Figure 3-26. You get a reference to teamone’s master branch position locally.
 
 ### Pushing ###
 
-When you want to share a branch with the world, you need to push it up to a remote that you have write access to. Your local branches aren’t automatically synchronized to the remotes you write to — you have to explicitly push the branches you want to share. That way, you can use private branches for work you don’t want to share, and push up only the topic branches you want to collaborate on.
+Bila anda ingin membagikan sebuah branch kepada dunia, anda perlu mem-"push" (mendorong?) branch tersebut ke sebuah tempat yang bersifat remote dimana anda memiliki akses tulis atasnya. Branch lokal anda tidak secara otomatis disinkronisasi dengan branch yang ada di remote - anda harus secara eksplisit melakukan push pada branch yang ingin anda bagikan. Dengan demikian, anda dapat menggunakan branch pribadi di lokal untuk pekerjaan yang tidak ingin anda bagi ke luar, dan hanya melakukan push pada branch dimana anda ingin berkolaborasi.
 
-If you have a branch named `serverfix` that you want to work on with others, you can push it up the same way you pushed your first branch. Run `git push (remote) (branch)`:
+Jika anda memiliki cabang bernama `serverfix` dimana anda ingin bekerja sama dengan orang lain, anda dapat melakukan push dengan cara yang sama seperti yang telah anda lakukan pada branch pertama. Jalankan `git push (remote) (branch)`:
 
 	$ git push origin serverfix
 	Counting objects: 20, done.
@@ -422,9 +422,9 @@ If you have a branch named `serverfix` that you want to work on with others, you
 	To git@github.com:schacon/simplegit.git
 	 * [new branch]      serverfix -> serverfix
 
-This is a bit of a shortcut. Git automatically expands the `serverfix` branchname out to `refs/heads/serverfix:refs/heads/serverfix`, which means, “Take my serverfix local branch and push it to update the remote’s serverfix branch.” We’ll go over the `refs/heads/` part in detail in Chapter 9, but you can generally leave it off. You can also do `git push origin serverfix:serverfix`, which does the same thing — it says, “Take my serverfix and make it the remote’s serverfix.” You can use this format to push a local branch into a remote branch that is named differently. If you didn’t want it to be called `serverfix` on the remote, you could instead run `git push origin serverfix:awesomebranch` to push your local `serverfix` branch to the `awesomebranch` branch on the remote project.
+Ini sebenarnya merupakan sebuah jalan pintas. Git secara otomatis mengexpand nama branch `serverfix` ke `refs/heads/serverfix:refs/heads/serverfix`, yang berarti: "Ambil serverfix dari branch lokal milik saya dan lakukan push untuk memperbaharui branch serverfix yang ada di remote." Kita lewati dahulu bahasan mengenai `refs/heads/` yang akan dibahas secara detailnya di Bab 9, walaupun secara umum anda boleh saja melewatkannya. Anda juga dapat melakukan perintah `git push origin serverfix:serverfix`, yang pada dasarnya melakukan hal yang sama — yang bisa diartikan, “Ambil serverfix saya itu untuk serverfix di remote.” Anda dapat menggunakan format ini untuk melakukan push dari branch lokal ke branch remote yang diberi nama berbeda. Jika Anda tidak ingin menamainya dengan `serverfix` pada remote, anda bisa menjalankan `git push origin serverfix:` untuk melakukan push branch lokal `serverfix` anda ke branch `awesomebranch` di remote project.
 
-The next time one of your collaborators fetches from the server, they will get a reference to where the server’s version of `serverfix` is under the remote branch `origin/serverfix`:
+Jika di suatu saat salah satu dari kolaborator projek anda melakukan fetch dari server, mereka akan mendapatkan referensi ke tempat dimana versi `serverfix` dari server berada di bawah branch remote `origin/serverfix`:
 
 	$ git fetch origin
 	remote: Counting objects: 20, done.
@@ -434,15 +434,15 @@ The next time one of your collaborators fetches from the server, they will get a
 	From git@github.com:schacon/simplegit
 	 * [new branch]      serverfix    -> origin/serverfix
 
-It’s important to note that when you do a fetch that brings down new remote branches, you don’t automatically have local, editable copies of them. In other words, in this case, you don’t have a new `serverfix` branch — you only have an `origin/serverfix` pointer that you can’t modify.
+Penting untuk dicatat bahwa ketika anda melakukan fetch dari suatu branch remote baru, anda tidak secara otomatis memiliki salinan lokalnya. Dengan kata lain, dalam hal ini, anda tidak memiliki branch `serverfix` baru - anda hanya memiliki pointer `origin/serverfix` yang tidak dapat anda modifikasi.
 
-To merge this work into your current working branch, you can run `git merge origin/serverfix`. If you want your own `serverfix` branch that you can work on, you can base it off your remote branch:
+Untuk menggabungkan pekerjaan ini ke dalam branch yang saat ini sedang anda kerjakan, anda dapat menjalankan `git merge origin/serverfix`. Jika anda ingin memiliki branch `serverfix` sendiri dimana anda dapat bekerja di atasnya, anda dapat menyandarkannya ke branch remote anda:
 
 	$ git checkout -b serverfix origin/serverfix
 	Branch serverfix set up to track remote branch refs/remotes/origin/serverfix.
 	Switched to a new branch "serverfix"
 
-This gives you a local branch that you can work on that starts where `origin/serverfix` is.
+Ini akan memberikan anda sebuah branch lokal dimana anda dapat mengerjakannya yang dimulai dari dimana `origin/serverfix` berada.
 
 ### Tracking Branches ###
 
